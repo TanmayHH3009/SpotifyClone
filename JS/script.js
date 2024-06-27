@@ -73,9 +73,9 @@ async function getSongs(folder) {
   for (const song of songs) {
     songUL.innerHTML += `
          <li>
-               <img class = "invert"src="images//music.svg" alt="" > 
+               <img class = "invert"src="images/blob/main/music.svg" alt="" > 
                <div class="info">
-             <div>  ${song.replace("https://tanmayhh3009.github.io//blob/main/songs/", " ")}</div>
+             <div>  ${song.replace("https://tanmayhh3009.github.io/blob/main/songs/", " ")}</div>
              
                </div>
                <div class="playNow">
