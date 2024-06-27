@@ -82,7 +82,7 @@ async function main() {
          <li>
                <img class = "invert"src="images//music.svg" alt="" > 
                <div class="info">
-             <div>  ${song.replace("http://127.0.0.1:5500/songs/", " ")}</div>
+             <div>  ${song.replace("https://tanmayhh3009.github.io/songs/", " ")}</div>
              
                </div>
                <div class="playNow">
