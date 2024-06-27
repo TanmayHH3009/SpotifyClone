@@ -80,7 +80,7 @@ async function getSongs(folder) {
                </div>
                <div class="playNow">
                 <span>Play Now</span>
-                   <img class = "invert"src="images//play.svg" alt="" > 
+                   <img class = "invert"src="/blob/main/images/play.svg" alt="" > 
   
                </div>
            </li>`;
@@ -108,7 +108,7 @@ const playMusic = (track, pause = false) => {
   if (!pause) {
     currentSong.play();
     //       play.src="/images/play.svg"
-    play.src = "/images/pause.svg";
+    play.src = "/blob/main/images/pause.svg";
   }
   
   document.querySelector(".songInfo").innerHTML = track;
@@ -135,7 +135,7 @@ async function displayAlbums(){
             let folder = e.href.split("/").slice(-1)[0];
             //get the metadata for folder
   
-          let a = await fetch(`/songs/${folder}/info.json`)
+          let a = await fetch(`/blob/main/songs/${folder}/info.json`)
           let response = await a.json();
             //console.log(response)
             cardContainer.innerHTML += `<div data-folder=${folder} class="cards">
@@ -148,7 +148,7 @@ async function displayAlbums(){
                       
                   </div>
                   
-                  <img src="/songs/${folder}/cover.jpeg" alt="">
+                  <img src="/blob/main/songs/${folder}/cover.jpeg" alt="">
                   <h2>${response.title}</h2>
                   <p> 
                       ${response.singers}
@@ -190,7 +190,7 @@ Array.from(document.getElementsByClassName("cards")).forEach(e=> {
 async function main() {
   //get the list  of the Songs
 
-  await getSongs("songs/Ashique2");
+  await getSongs("/blob/main/songs/Ashique2");
   console.log(songs,extractFilename(songs[0]));
   // currentSong.src=songs[0]
   playMusic(extractFilename(songs[0]), true);
@@ -217,10 +217,10 @@ displayAlbums();
   play.addEventListener("click", () => {
     if (currentSong.paused) {
       currentSong.play();
-      play.src = "/images/pause.svg";
+      play.src = "/blob/main/images/pause.svg";
     } else {
       currentSong.pause();
-      play.src = "/images/play.svg";
+      play.src = "/blob/main/images/play.svg";
     }
   });
 
@@ -308,10 +308,10 @@ document.querySelector(".volume").getElementsByTagName("input")[0].addEventListe
   currentSong.volume = parseInt(e.target.value)/100
   console.log(currentSong.volume)
   if(  currentSong.volume == 0){
-    document.getElementById("v").src = "/images/mute.svg"
+    document.getElementById("v").src = "/blob/main/images/mute.svg"
   }
   else{
-    document.getElementById("v").src = "/images/volume.svg"
+    document.getElementById("v").src = /blob/main"/images/volume.svg"
   }
 })
 
@@ -327,12 +327,12 @@ document.querySelector(".volume").getElementsByTagName("input")[0].addEventListe
 
 document.getElementById("v").addEventListener("click",e=>{
   console.log(e.target.src)
-if(e.target.src == "/images/volume.svg"){
-  e.target.src = "/images/mute.svg"
+if(e.target.src == "/blob/main/images/volume.svg"){
+  e.target.src = "/blob/main/images/mute.svg"
   currentSong.volume = 0;
 }
 else{
-  e.target.src = "/images/volume.svg"
+  e.target.src = "/blob/main/images/volume.svg"
   currentSong.volume = 0.1;
 }
 })
