@@ -41,7 +41,7 @@ function extractFilename(urlOrFilename) {
 async function getSongs(folder) {
   // songUL.innerHTML = "";
   currFolder = folder;
-  let a = await fetch(`/blob/main/${folder}/`);
+  let a = await fetch(`/tree/main${folder}/`);
   //console.log(a,currFolder)
   let response = await a.text();
   //console.log(response)
@@ -61,7 +61,7 @@ async function getSongs(folder) {
   for (let i = 0; i < as.length; i++) {
     const element = as[i];
     if (element.href.endsWith(".mp3")) {
-      songs.push(element.href.split(`/blob/main/${folder}/`)[1]);
+      songs.push(element.href.split(`/tree/main/${folder}/`)[1]);
     }
   }
 
@@ -118,7 +118,7 @@ const playMusic = (track, pause = false) => {
 
 
 async function displayAlbums(){
-  let a = await fetch(`/songs/`);
+  let a = await fetch(`/tree/main/songs/`);
   //console.log(a,currFolder)
   let response = await a.text();
   let div = document.createElement("div");
