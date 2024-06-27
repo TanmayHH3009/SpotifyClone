@@ -1,26 +1,7 @@
 
 let currentSong = new Audio();
 let songs;
-async function getSongs() {
-  let a = await fetch("/songs/");
-  let response = await a.text();
 
-
-  //console.log(response);
-  // let songs = JSON.parse(response);
-
-  let div = document.createElement("div");
-  div.innerHTML = response;
-  let as = div.getElementsByTagName("a");
-  let songs = [];
-  for (let i = 0; i < as.length; i++) {
-    const element = as[i];
-    if (element.href.endsWith(".mp3")) {
-      songs.push(element.href);
-    }
-  }
-  return songs;
-}
 
 //second to min:second
 function convertSecondsToMinSec(seconds) {
@@ -60,7 +41,7 @@ function extractFilename(urlOrFilename) {
 async function getSongs(folder) {
   // songUL.innerHTML = "";
   currFolder = folder;
-  let a = await fetch(`/${folder}/`);
+  let a = await fetch(`/blob/main/${folder}/`);
   //console.log(a,currFolder)
   let response = await a.text();
   //console.log(response)
@@ -80,7 +61,7 @@ async function getSongs(folder) {
   for (let i = 0; i < as.length; i++) {
     const element = as[i];
     if (element.href.endsWith(".mp3")) {
-      songs.push(element.href.split(`/${folder}/`)[1]);
+      songs.push(element.href.split(`/blob/main/${folder}/`)[1]);
     }
   }
 
@@ -94,7 +75,7 @@ async function getSongs(folder) {
          <li>
                <img class = "invert"src="images//music.svg" alt="" > 
                <div class="info">
-             <div>  ${song.replace("https://tanmayhh3009.github.io/songs/", " ")}</div>
+             <div>  ${song.replace("https://tanmayhh3009.github.io//blob/main/songs/", " ")}</div>
              
                </div>
                <div class="playNow">
